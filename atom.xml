@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
+  <title><![CDATA[freeakk.github.com]]></title>
   <link href="http://freeakk.github.com/atom.xml" rel="self"/>
   <link href="http://freeakk.github.com/"/>
-  <updated>2012-05-24T09:59:53+04:00</updated>
+  <updated>2012-05-24T10:08:42+04:00</updated>
   <id>http://freeakk.github.com/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Uvarov Michael]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
