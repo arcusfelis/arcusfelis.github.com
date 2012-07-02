@@ -111,34 +111,34 @@ First of all, we need to build PLT:</p>
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='erlang'><span class='line'><span class="n">dialyzer</span>  <span class="o">--</span><span class="n">build_plt</span> <span class="n">erts</span> <span class="n">kernel</span> <span class="n">stdlib</span>
-</span><span class='line'> <span class="n">dialyzer</span> <span class="o">-</span><span class="n">n</span> <span class="o">-</span><span class="n">nn</span> <span class="o">-</span><span class="n">pa</span> <span class="p">..</span><span class="o">/</span><span class="n">xapian</span><span class="o">/</span><span class="n">ebin</span> <span class="o">-</span><span class="n">pa</span> <span class="n">deps</span><span class="o">/</span><span class="n">seqbind</span><span class="o">/</span><span class="n">ebin</span><span class="o">/</span> <span class="o">-</span><span class="n">pa</span>
-</span><span class='line'> <span class="n">deps</span><span class="o">/</span><span class="n">erlando</span><span class="o">/</span><span class="n">ebin</span><span class="o">/</span> <span class="o">-</span><span class="n">pa</span> <span class="n">deps</span><span class="o">/</span><span class="n">parse_trans</span><span class="o">/</span><span class="n">ebin</span><span class="o">/</span> <span class="o">--</span><span class="n">src</span> <span class="n">src</span><span class="o">/</span> <span class="n">deps</span><span class="o">/</span><span class="n">erlando</span><span class="o">/</span><span class="n">src</span><span class="o">/</span>
-</span><span class='line'> <span class="n">deps</span><span class="o">/</span><span class="n">poolboy</span><span class="o">/</span><span class="n">src</span><span class="o">/</span>
+</pre></td><td class='code'><pre><code class='erlang'><span class='line'><span class="n">dialyzer</span> <span class="o">-</span><span class="n">n</span> <span class="o">-</span><span class="n">nn</span> <span class="o">-</span><span class="n">pa</span> <span class="p">..</span><span class="o">/</span><span class="n">xapian</span><span class="o">/</span><span class="n">ebin</span> <span class="o">-</span><span class="n">pa</span> <span class="n">deps</span><span class="o">/</span><span class="n">seqbind</span><span class="o">/</span><span class="n">ebin</span><span class="o">/</span> <span class="o">-</span><span class="n">pa</span>
+</span><span class='line'><span class="n">deps</span><span class="o">/</span><span class="n">erlando</span><span class="o">/</span><span class="n">ebin</span><span class="o">/</span> <span class="o">-</span><span class="n">pa</span> <span class="n">deps</span><span class="o">/</span><span class="n">parse_trans</span><span class="o">/</span><span class="n">ebin</span><span class="o">/</span> <span class="o">--</span><span class="n">src</span> <span class="n">src</span><span class="o">/</span> <span class="n">deps</span><span class="o">/</span><span class="n">erlando</span><span class="o">/</span><span class="n">src</span><span class="o">/</span>
+</span><span class='line'><span class="n">deps</span><span class="o">/</span><span class="n">poolboy</span><span class="o">/</span><span class="n">src</span><span class="o">/</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>The parameters are:
-- -n    Skip the plt check when running Dialyzer. Useful when working with</p>
-
-<pre><code>    installed plts that never change. 
-
-    It saves few seconds.
-</code></pre>
+<p>The parameters are:</p>
 
 <ul>
-<li><p>-nn   Bypass the native code compilation of some key files that Dialyzer</p>
+<li><code>-n</code>  Skip the plt check when running Dialyzer. Useful when working with
+installed plts that never change.</li>
+</ul>
 
-<pre><code>  heuristically performs when dialyzing many files; this avoids the
-  compilation time but it may result in (much) longer analysis
-  time.
 
-  The native code compilation is slow. So, add this parameter to save
-  time.
-</code></pre></li>
-<li><p>-pa   This parameter adds the code for parse transforms.</p></li>
-<li><p>&#8211;src Add the source code and few dependencies  to analyze.</p></li>
+<p>It saves few seconds.</p>
+
+<ul>
+<li><code>-nn</code>  Bypass the native code compilation of some key files that Dialyzer
+heuristically performs when dialyzing many files; this avoids the
+compilation time but it may result in (much) longer analysis time.</li>
+</ul>
+
+
+<p>The native code compilation is slow. So, add this parameter to save time.</p>
+
+<ul>
+<li><p><code>-pa</code>  This parameter adds the code for parse transforms.</p></li>
+<li><p><code>--src</code>  Add the source code and few dependencies  to analyze.</p></li>
 </ul>
 
 

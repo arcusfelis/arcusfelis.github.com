@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Erlang | freeakk.github.com]]></title>
   <link href="http://freeakk.github.com/blog/categories/erlang/atom.xml" rel="self"/>
   <link href="http://freeakk.github.com/"/>
-  <updated>2012-07-02T19:52:06+04:00</updated>
+  <updated>2012-07-02T20:51:36+04:00</updated>
   <id>http://freeakk.github.com/</id>
   <author>
     <name><![CDATA[Uvarov Michael]]></name>
@@ -31,32 +31,33 @@ dialyzer  --build_plt erts kernel stdlib
 <p>The next command will show the errors:</p>
 
 <p><code>erlang
-dialyzer  --build_plt erts kernel stdlib
- dialyzer -n -nn -pa ../xapian/ebin -pa deps/seqbind/ebin/ -pa
- deps/erlando/ebin/ -pa deps/parse_trans/ebin/ --src src/ deps/erlando/src/
- deps/poolboy/src/
+dialyzer -n -nn -pa ../xapian/ebin -pa deps/seqbind/ebin/ -pa
+deps/erlando/ebin/ -pa deps/parse_trans/ebin/ --src src/ deps/erlando/src/
+deps/poolboy/src/
 </code></p>
 
-<p>The parameters are:
-- -n    Skip the plt check when running Dialyzer. Useful when working with</p>
-
-<pre><code>    installed plts that never change. 
-
-    It saves few seconds.
-</code></pre>
+<p>The parameters are:</p>
 
 <ul>
-<li><p>-nn   Bypass the native code compilation of some key files that Dialyzer</p>
+<li><code>-n</code>  Skip the plt check when running Dialyzer. Useful when working with
+installed plts that never change.</li>
+</ul>
 
-<pre><code>  heuristically performs when dialyzing many files; this avoids the
-  compilation time but it may result in (much) longer analysis
-  time.
 
-  The native code compilation is slow. So, add this parameter to save
-  time.
-</code></pre></li>
-<li><p>-pa   This parameter adds the code for parse transforms.</p></li>
-<li><p>--src Add the source code and few dependencies  to analyze.</p></li>
+<p>It saves few seconds.</p>
+
+<ul>
+<li><code>-nn</code>  Bypass the native code compilation of some key files that Dialyzer
+heuristically performs when dialyzing many files; this avoids the
+compilation time but it may result in (much) longer analysis time.</li>
+</ul>
+
+
+<p>The native code compilation is slow. So, add this parameter to save time.</p>
+
+<ul>
+<li><p><code>-pa</code>  This parameter adds the code for parse transforms.</p></li>
+<li><p><code>--src</code>  Add the source code and few dependencies  to analyze.</p></li>
 </ul>
 
 
