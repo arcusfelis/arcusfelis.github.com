@@ -100,20 +100,21 @@ It uses Persistent Lookup Table for storing information.
 First of all, we need to build PLT:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='erlang'><span class='line'><span class="n">dialyzer</span>  <span class="o">--</span><span class="n">build_plt</span> <span class="n">erts</span> <span class="n">kernel</span> <span class="n">stdlib</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>dialyzer  --build_plt erts kernel stdlib
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>It will take about 20 minutes and can be called only once.</p>
+<p>Drink coffee, it will take about 20 minutes and can be called only once.</p>
 
-<p>The next command will show the errors:</p>
+<p>The next step is shorter (only 3 minutes), but we will run it regularly.
+This command will show the errors:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='erlang'><span class='line'><span class="n">dialyzer</span> <span class="o">-</span><span class="n">n</span> <span class="o">-</span><span class="n">nn</span> <span class="o">-</span><span class="n">pa</span> <span class="p">..</span><span class="o">/</span><span class="n">xapian</span><span class="o">/</span><span class="n">ebin</span> <span class="o">-</span><span class="n">pa</span> <span class="n">deps</span><span class="o">/</span><span class="n">seqbind</span><span class="o">/</span><span class="n">ebin</span><span class="o">/</span> <span class="o">-</span><span class="n">pa</span>
-</span><span class='line'><span class="n">deps</span><span class="o">/</span><span class="n">erlando</span><span class="o">/</span><span class="n">ebin</span><span class="o">/</span> <span class="o">-</span><span class="n">pa</span> <span class="n">deps</span><span class="o">/</span><span class="n">parse_trans</span><span class="o">/</span><span class="n">ebin</span><span class="o">/</span> <span class="o">--</span><span class="n">src</span> <span class="n">src</span><span class="o">/</span> <span class="n">deps</span><span class="o">/</span><span class="n">erlando</span><span class="o">/</span><span class="n">src</span><span class="o">/</span>
-</span><span class='line'><span class="n">deps</span><span class="o">/</span><span class="n">poolboy</span><span class="o">/</span><span class="n">src</span><span class="o">/</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>dialyzer -n -nn -pa ../xapian/ebin -pa deps/seqbind/ebin/ -pa
+</span><span class='line'>deps/erlando/ebin/ -pa deps/parse_trans/ebin/ --src src/ deps/erlando/src/
+</span><span class='line'>deps/poolboy/src/
 </span></code></pre></td></tr></table></div></figure>
 
 

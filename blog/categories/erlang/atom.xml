@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Erlang | freeakk.github.com]]></title>
   <link href="http://freeakk.github.com/blog/categories/erlang/atom.xml" rel="self"/>
   <link href="http://freeakk.github.com/"/>
-  <updated>2012-07-02T20:51:36+04:00</updated>
+  <updated>2012-07-02T21:12:23+04:00</updated>
   <id>http://freeakk.github.com/</id>
   <author>
     <name><![CDATA[Uvarov Michael]]></name>
@@ -22,15 +22,16 @@
 It uses Persistent Lookup Table for storing information.
 First of all, we need to build PLT:</p>
 
-<p><code>erlang
+<p><code>bash
 dialyzer  --build_plt erts kernel stdlib
 </code></p>
 
-<p>It will take about 20 minutes and can be called only once.</p>
+<p>Drink coffee, it will take about 20 minutes and can be called only once.</p>
 
-<p>The next command will show the errors:</p>
+<p>The next step is shorter (only 3 minutes), but we will run it regularly.
+This command will show the errors:</p>
 
-<p><code>erlang
+<p><code>bash
 dialyzer -n -nn -pa ../xapian/ebin -pa deps/seqbind/ebin/ -pa
 deps/erlando/ebin/ -pa deps/parse_trans/ebin/ --src src/ deps/erlando/src/
 deps/poolboy/src/
