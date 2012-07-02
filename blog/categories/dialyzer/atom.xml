@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Erlang | freeakk.github.com]]></title>
-  <link href="http://freeakk.github.com/blog/categories/erlang/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Dialyzer | freeakk.github.com]]></title>
+  <link href="http://freeakk.github.com/blog/categories/dialyzer/atom.xml" rel="self"/>
   <link href="http://freeakk.github.com/"/>
   <updated>2012-07-02T19:52:06+04:00</updated>
   <id>http://freeakk.github.com/</id>
@@ -61,29 +61,6 @@ dialyzer  --build_plt erts kernel stdlib
 
 
 <p>The errors in dependencies will be also shown.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Pipes]]></title>
-    <link href="http://freeakk.github.com/blog/2012/06/15/pipes/"/>
-    <updated>2012-06-15T18:23:00+04:00</updated>
-    <id>http://freeakk.github.com/blog/2012/06/15/pipes</id>
-    <content type="html"><![CDATA[<h1>Using Xapian through a pipe</h1>
-
-<p>To avoid linking with Xapian you can use a port:</p>
-
-<p><code>erlang
-xapian_server:open(Path, [port]).
-</code></p>
-
-<p>C-port allows to use Erlang VM and Xapian in different memory spaces.
-If a port crashes, Erlang VM will be still alive.</p>
-
-<p>But I think, it does not help to avoid GPL restrictions:
-the whole program will be a derivative work.</p>
-
-<p>GPL is a sly license. :)</p>
 ]]></content>
   </entry>
   

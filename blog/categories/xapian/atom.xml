@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Xapian | freeakk.github.com]]></title>
   <link href="http://freeakk.github.com/blog/categories/xapian/atom.xml" rel="self"/>
   <link href="http://freeakk.github.com/"/>
-  <updated>2012-06-15T18:41:26+04:00</updated>
+  <updated>2012-07-02T19:52:06+04:00</updated>
   <id>http://freeakk.github.com/</id>
   <author>
     <name><![CDATA[Uvarov Michael]]></name>
@@ -12,6 +12,57 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Dialyzer]]></title>
+    <link href="http://freeakk.github.com/blog/2012/07/02/dialyzer/"/>
+    <updated>2012-07-02T19:12:00+04:00</updated>
+    <id>http://freeakk.github.com/blog/2012/07/02/dialyzer</id>
+    <content type="html"><![CDATA[<p>Dializer is a static analysis tool.
+It uses Persistent Lookup Table for storing information.
+First of all, we need to build PLT:</p>
+
+<p><code>erlang
+dialyzer  --build_plt erts kernel stdlib
+</code></p>
+
+<p>It will take about 20 minutes and can be called only once.</p>
+
+<p>The next command will show the errors:</p>
+
+<p><code>erlang
+dialyzer  --build_plt erts kernel stdlib
+ dialyzer -n -nn -pa ../xapian/ebin -pa deps/seqbind/ebin/ -pa
+ deps/erlando/ebin/ -pa deps/parse_trans/ebin/ --src src/ deps/erlando/src/
+ deps/poolboy/src/
+</code></p>
+
+<p>The parameters are:
+- -n    Skip the plt check when running Dialyzer. Useful when working with</p>
+
+<pre><code>    installed plts that never change. 
+
+    It saves few seconds.
+</code></pre>
+
+<ul>
+<li><p>-nn   Bypass the native code compilation of some key files that Dialyzer</p>
+
+<pre><code>  heuristically performs when dialyzing many files; this avoids the
+  compilation time but it may result in (much) longer analysis
+  time.
+
+  The native code compilation is slow. So, add this parameter to save
+  time.
+</code></pre></li>
+<li><p>-pa   This parameter adds the code for parse transforms.</p></li>
+<li><p>--src Add the source code and few dependencies  to analyze.</p></li>
+</ul>
+
+
+<p>The errors in dependencies will be also shown.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Pipes]]></title>
