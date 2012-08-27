@@ -3,31 +3,34 @@
     <style type="text/css">
         .variable { padding-left: 10px; padding-right: 1px; }
 
-        .var1  { background-color: darkred;        color: white; }
-        .var2  { background-color: darkgreen;      color: white; }
-        .var3  { background-color: darkblue;       color: white; }
-        .var4  { background-color: slateblue;      color: white; }
-        .var5  { background-color: darkmagenta;    color: white; }
-        .var6  { background-color: rosybrown;      color: white; }
-        .var7  { background-color: yellowgreen;    color: white; }
-        .var8  { background-color: wheat;          color: black; }
-        .var9  { background-color: darksalmon;     color: black; }
-        .var10 { background-color: darkkhaki;      color: black; }
-        .var11 { background-color: lightgreen;     color: black; }
-        .var12 { background-color: mistyrose;      color: black; }
-        .var13 { background-color: skyblue;        color: black; }
-        .var14 { background-color: tan;            color: black; }
-        .var15 { background-color: thistle;        color: black; }
-        .var16 { background-color: yellowgreen;    color: crimson; }
-        .var17 { background-color: azure;     color: crimson; }
-        .var18 { background-color: khaki;    color: crimson; }
-        .var19 { background-color: wheat;    color: crimson; }
-        .var20 { background-color: lemonchiffon;    color: crimson; }
-
-
+        body.highlight .var1  { background-color: darkred;        color: white; }
+        body.highlight .var2  { background-color: darkgreen;      color: white; }
+        body.highlight .var3  { background-color: darkblue;       color: white; }
+        body.highlight .var4  { background-color: slateblue;      color: white; }
+        body.highlight .var5  { background-color: darkmagenta;    color: white; }
+        body.highlight .var6  { background-color: rosybrown;      color: white; }
+        body.highlight .var7  { background-color: yellowgreen;    color: white; }
+        body.highlight .var8  { background-color: wheat;          color: black; }
+        body.highlight .var9  { background-color: darksalmon;     color: black; }
+        body.highlight .var10 { background-color: darkkhaki;      color: black; }
+        body.highlight .var11 { background-color: lightgreen;     color: black; }
+        body.highlight .var12 { background-color: mistyrose;      color: black; }
+        body.highlight .var13 { background-color: skyblue;        color: black; }
+        body.highlight .var14 { background-color: tan;            color: black; }
+        body.highlight .var15 { background-color: thistle;        color: black; }
+        body.highlight .var16 { background-color: yellowgreen;    color: crimson; }
+        body.highlight .var17 { background-color: azure;     color: crimson; }
+        body.highlight .var18 { background-color: khaki;    color: crimson; }
+        body.highlight .var19 { background-color: wheat;    color: crimson; }
+        body.highlight .var20 { background-color: lemonchiffon;    color: crimson; }
     </style>
     </head>
     <body>
+        <input type="checkbox" onclick="document.body.className = this.checked ? 'highlight' : '';">
+         Enable highlighting
+        <br/>
+        &nbsp;
+        <br/>
         <code>
             new(<span class="variable var1">Name</span>, <span class="variable var2">Options</span>) -> tid() | atom()
 <br/>
