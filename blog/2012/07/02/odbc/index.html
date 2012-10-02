@@ -1,24 +1,96 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[freeakk.github.com]]></title>
-  <link href="http://freeakk.github.com/atom.xml" rel="self"/>
-  <link href="http://freeakk.github.com/"/>
-  <updated>2012-10-02T14:33:19+04:00</updated>
-  <id>http://freeakk.github.com/</id>
-  <author>
-    <name><![CDATA[Uvarov Michael]]></name>
-    
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>ODBC, MS SQL Server and Erlang - freeakk.github.com</title>
+  <meta name="author" content="Uvarov Michael">
 
   
-  <entry>
-    <title type="html"><![CDATA[ODBC, MS SQL Server and Erlang]]></title>
-    <link href="http://freeakk.github.com/blog/2012/07/02/odbc/"/>
-    <updated>2012-07-02T19:12:00+04:00</updated>
-    <id>http://freeakk.github.com/blog/2012/07/02/odbc</id>
-    <content type="html"><![CDATA[<p>Here we are connecting to MS SQL Server 2008 on MS Windows XP from Erlang on Debian Linux.</p>
+  <meta name="description" content="Here we are connecting to MS SQL Server 2008 on MS Windows XP from Erlang on Debian Linux. Part 1 Install utilities (FreeTDS SQL client): 1
+# apt-get &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://freeakk.github.com/blog/2012/07/02/odbc">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="freeakk.github.com" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">freeakk.github.com</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:freeakk.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About me</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">ODBC, MS SQL Server and Erlang</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-02T19:12:00+04:00" pubdate data-updated="true">Jul 2<span>nd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Here we are connecting to MS SQL Server 2008 on MS Windows XP from Erlang on Debian Linux.</p>
 
 <h2>Part 1</h2>
 
@@ -145,89 +217,119 @@ here:</p>
 
 
 
-]]></content>
-  </entry>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
   
-  <entry>
-    <title type="html"><![CDATA[Dialyzer]]></title>
-    <link href="http://freeakk.github.com/blog/2012/07/02/dialyzer/"/>
-    <updated>2012-07-02T19:12:00+04:00</updated>
-    <id>http://freeakk.github.com/blog/2012/07/02/dialyzer</id>
-    <content type="html"><![CDATA[<p>Dializer is a static analysis tool.
-It uses Persistent Lookup Table for storing information.
-First of all, we need to build PLT:</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>dialyzer  --build_plt  --apps erts kernel stdlib
-</span></code></pre></td></tr></table></div></figure>
+<span class="byline author vcard">Posted by <span class="fn">Uvarov Michael</span></span>
+
+      
 
 
-<p>It is time for a cup of coffee, because it will take about 20 minutes.
-Fortunately, it can be called only once.</p>
-
-<p>The next step is only 3-minutes long, but it will be called regularly.
-This command will show the errors:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>dialyzer -n -nn -pa ../xapian/ebin -pa deps/seqbind/ebin/ -pa
-</span><span class='line'>deps/erlando/ebin/ -pa deps/parse_trans/ebin/ --src src/ deps/erlando/src/
-</span><span class='line'>deps/poolboy/src/
-</span></code></pre></td></tr></table></div></figure>
 
 
-<p>The parameters are:</p>
-
-<ul>
-<li><code>-n</code>  Skip the plt check when running Dialyzer. Useful when working with
-installed plts that never change.</li>
-</ul>
 
 
-<p>It saves few seconds.</p>
-
-<ul>
-<li><code>-nn</code>  Bypass the native code compilation of some key files that Dialyzer
-heuristically performs when dialyzing many files; this avoids the
-compilation time but it may result in (much) longer analysis time.</li>
-</ul>
 
 
-<p>The native code compilation is slow. So, add this parameter to save time.</p>
-
-<ul>
-<li><p><code>-pa</code>  This parameter adds the code for parse transforms.</p></li>
-<li><p><code>--src</code>  Add the source code and few dependencies  to analyze.</p></li>
-</ul>
-
-
-<p>The errors in dependencies will be also shown.</p>
-]]></content>
-  </entry>
   
-  <entry>
-    <title type="html"><![CDATA[Pipes]]></title>
-    <link href="http://freeakk.github.com/blog/2012/06/15/pipes/"/>
-    <updated>2012-06-15T18:23:00+04:00</updated>
-    <id>http://freeakk.github.com/blog/2012/06/15/pipes</id>
-    <content type="html"><![CDATA[<h1>Using Xapian through a pipe</h1>
-
-<p>To avoid linking with Xapian you can use a port:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='erlang'><span class='line'><span class="nn">xapian_server</span><span class="p">:</span><span class="n">open</span><span class="p">(</span><span class="nv">Path</span><span class="p">,</span> <span class="p">[</span><span class="n">port</span><span class="p">]).</span>
-</span></code></pre></td></tr></table></div></figure>
 
 
-<p>C-port allows to use Erlang VM and Xapian in different memory spaces.
-If a port crashes, Erlang VM will be still alive.</p>
+<time datetime="2012-07-02T19:12:00+04:00" pubdate data-updated="true">Jul 2<span>nd</span>, 2012</time>
+      
 
-<p>But I think, it does not help to avoid GPL restrictions:
-the whole program will be a derivative work.</p>
-
-<p>GPL is a sly license. :)</p>
-]]></content>
-  </entry>
+<span class="categories">
   
-</feed>
+    <a class='category' href='/blog/categories/erlang/'>Erlang</a>, <a class='category' href='/blog/categories/odbc/'>ODBC</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://freeakk.github.com/blog/2012/07/02/odbc/" data-via="" data-counturl="http://freeakk.github.com/blog/2012/07/02/odbc/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/07/02/dialyzer/" title="Previous Post: Dialyzer">&laquo; Dialyzer</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/02/odbc/">ODBC, MS SQL Server and Erlang</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/02/dialyzer/">Dialyzer</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/15/pipes/">Pipes</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Uvarov Michael -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

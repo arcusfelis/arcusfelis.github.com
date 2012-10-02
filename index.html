@@ -9,10 +9,8 @@
   <meta name="author" content="Uvarov Michael">
 
   
-  <meta name="description" content="Dializer is a static analysis tool.
-It uses Persistent Lookup Table for storing information.
-First of all, we need to build PLT: 1
-dialyzer -- &hellip;">
+  <meta name="description" content="Here we are connecting to MS SQL Server 2008 on MS Windows XP from Erlang on Debian Linux. Part 1 Install utilities (FreeTDS SQL client): 1
+# apt-get &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,6 +64,168 @@ dialyzer -- &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/07/02/odbc/">ODBC, MS SQL Server and Erlang</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-02T19:12:00+04:00" pubdate data-updated="true">Jul 2<span>nd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Here we are connecting to MS SQL Server 2008 on MS Windows XP from Erlang on Debian Linux.</p>
+
+<h2>Part 1</h2>
+
+<p>Install utilities (FreeTDS SQL client):</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># apt-get freetds-bin freetds-dev</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Try to connect with the <code>tsql</code> command from the <code>freetds-bin</code> package:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tsql -H %ip_address_or_hostname% -p %port_number% -U %username% -P %password%</span></code></pre></td></tr></table></div></figure>
+
+
+<p>or (with actual values for me):</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ tsql -H PI -p 1433 -U test -P test
+</span><span class='line'>locale is "en_US.UTF-8"
+</span><span class='line'>locale charset is "UTF-8"
+</span><span class='line'>using default charset "UTF-8"
+</span><span class='line'>1&gt;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you see the counter (1, 2, 3, &#8230;), most likely tsql is unable to connect to
+the indicated server. Check the firewall&#8217;s settings.</p>
+
+<p><code>sqsh</code> is an alternative for <code>tsql</code> (more powerful).</p>
+
+<h2>Part 2</h2>
+
+<p>Install the ODBC client driver.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>apt-get install tdsodbc</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Problems? Part 2a</h2>
+
+<p><code>tdsodbc</code> uses <code>unixodbc</code> library, that conflicts with <code>libiodbc2</code>. <code>libiodbc2</code>
+is a dependency for soprano, that is a dependency for the most of KDE applications.</p>
+
+<p>So, you cannot use the KDE and UnixODBC in Debian (the bug from 2011 year).</p>
+
+<p>This conflict can be fixed, downloading the patched versions of the packages from
+here:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>http://packages.ubuntu.com/precise/libsoprano4
+</span><span class='line'>http://packages.ubuntu.com/precise/i386/soprano-daemon</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you don&#8217;t use KDE or the bug was fixed, skip this step.</p>
+
+<h2>Part 3</h2>
+
+<p>Update the config files:</p>
+
+<p>/etc/odbc.ini</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[odbc-test]
+</span><span class='line'>Description = test
+</span><span class='line'>Driver = ms-sql
+</span><span class='line'>Servername = odbc-test
+</span><span class='line'>UID = test
+</span><span class='line'>Database = test_db
+</span><span class='line'>Port = 1433</span></code></pre></td></tr></table></div></figure>
+
+
+<p>/etc/odbcinst.ini</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[ms-sql]
+</span><span class='line'>Description = TDS connection
+</span><span class='line'>Driver = /usr/lib/i386-linux-gnu/odbc/libtdsodbc.so
+</span><span class='line'>Setup = /usr/lib/i386-linux-gnu/odbc/libtdsS.so
+</span><span class='line'>UsageCount = 1
+</span><span class='line'>FileUsage = 1</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Test it:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$isql -v odbc-test test test
+</span><span class='line'>SQL&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Part 4</h2>
+
+<p>Try it from Erlang:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>1&gt; odbc:start().
+</span><span class='line'>ok
+</span><span class='line'>2&gt; {ok, S} = odbc:connect("DSN=odbc-test;UID=test;PWD=test", []).
+</span><span class='line'>{ok,&lt;0.44.0&gt;}
+</span><span class='line'>3&gt; odbc:sql_query(S, "SELECT 1").
+</span><span class='line'>{selected,[[]],[{1}]}</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -214,6 +374,10 @@ the whole program will be a derivative work.</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/02/odbc/">ODBC, MS SQL Server and Erlang</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/07/02/dialyzer/">Dialyzer</a>
