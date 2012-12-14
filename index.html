@@ -9,8 +9,13 @@
   <meta name="author" content="Uvarov Michael">
 
   
-  <meta name="description" content="Here we are connecting to MS SQL Server 2008 on MS Windows XP from Erlang on Debian Linux. Part 1 Install utilities (FreeTDS SQL client): 1
-# apt-get &hellip;">
+  <meta name="description" content="Date and time 1
+2
+odbc:sql_query(S, "SELECT {fn CURDATE()}").
+{selected,[[]],[{"2012-10-02"}]} 1
+2
+odbc:sql_query(S, "SELECT getdate()").
+{selected &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +75,59 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/07/02/odbc/">ODBC, MS SQL Server and Erlang</a></h1>
+      <h1 class="entry-title"><a href="/blog/2012/07/02/odbc-sql/">ODBC, MS SQL Server and Erlang</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-02T19:12:00+04:00" pubdate data-updated="true">Jul 2<span>nd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Date and time</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>odbc:sql_query(S, "SELECT  {fn CURDATE()}").
+</span><span class='line'>{selected,[[]],[{"2012-10-02"}]}</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>odbc:sql_query(S, "SELECT  getdate()").
+</span><span class='line'>{selected,[[]],[{ {{2012,10,23},{2,6,37}} }]}</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>{{2012,10,23},{2,6,37}}</code> has a type <code>sql_datetime</code>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/07/02/odbc/">Install ODBC and MS SQL Server Client for Erlang</a></h1>
     
     
       <p class="meta">
@@ -376,7 +433,11 @@ the whole program will be a derivative work.</p>
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2012/07/02/odbc/">ODBC, MS SQL Server and Erlang</a>
+        <a href="/blog/2012/07/02/odbc-sql/">ODBC, MS SQL Server and Erlang</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/02/odbc/">Install ODBC and MS SQL Server client for Erlang</a>
       </li>
     
       <li class="post">

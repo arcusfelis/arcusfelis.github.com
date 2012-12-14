@@ -5,12 +5,17 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Pipes - freeakk.github.com</title>
+  <title>ODBC, MS SQL Server and Erlang - freeakk.github.com</title>
   <meta name="author" content="Uvarov Michael">
 
   
-  <meta name="description" content="Using Xapian through a pipe To avoid linking with Xapian you can use a port: 1
-xapian_server:open(Path, [port]). C-port allows to use Erlang VM and &hellip;">
+  <meta name="description" content="Date and time 1
+2
+odbc:sql_query(S, "SELECT {fn CURDATE()}").
+{selected,[[]],[{"2012-10-02"}]} 1
+2
+odbc:sql_query(S, "SELECT getdate()").
+{selected &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +24,7 @@ xapian_server:open(Path, [port]). C-port allows to use Erlang VM and &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://freeakk.github.com/blog/2012/06/15/pipes">
+  <link rel="canonical" href="http://freeakk.github.com/blog/2012/07/02/odbc-sql">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -67,7 +72,7 @@ xapian_server:open(Path, [port]). C-port allows to use Erlang VM and &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Pipes</h1>
+      <h1 class="entry-title">ODBC, MS SQL Server and Erlang</h1>
     
     
       <p class="meta">
@@ -83,29 +88,30 @@ xapian_server:open(Path, [port]). C-port allows to use Erlang VM and &hellip;">
   
 
 
-<time datetime="2012-06-15T18:23:00+04:00" pubdate data-updated="true">Jun 15<span>th</span>, 2012</time>
+<time datetime="2012-07-02T19:12:00+04:00" pubdate data-updated="true">Jul 2<span>nd</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><h1>Using Xapian through a pipe</h1>
+<div class="entry-content"><h2>Date and time</h2>
 
-<p>To avoid linking with Xapian you can use a port:</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>odbc:sql_query(S, "SELECT  {fn CURDATE()}").
+</span><span class='line'>{selected,[[]],[{"2012-10-02"}]}</span></code></pre></td></tr></table></div></figure>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='erlang'><span class='line'><span class="nn">xapian_server</span><span class="p">:</span><span class="n">open</span><span class="p">(</span><span class="nv">Path</span><span class="p">,</span> <span class="p">[</span><span class="n">port</span><span class="p">]).</span>
-</span></code></pre></td></tr></table></div></figure>
 
 
-<p>C-port allows to use Erlang VM and Xapian in different memory spaces.
-If a port crashes, Erlang VM will be still alive.</p>
 
-<p>But I think, it does not help to avoid GPL restrictions:
-the whole program will be a derivative work.</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>odbc:sql_query(S, "SELECT  getdate()").
+</span><span class='line'>{selected,[[]],[{ {{2012,10,23},{2,6,37}} }]}</span></code></pre></td></tr></table></div></figure>
 
-<p>GPL is a sly license. :)</p>
+
+<p><code>{{2012,10,23},{2,6,37}}</code> has a type <code>sql_datetime</code>.</p>
 </div>
 
 
@@ -128,12 +134,12 @@ the whole program will be a derivative work.</p>
   
 
 
-<time datetime="2012-06-15T18:23:00+04:00" pubdate data-updated="true">Jun 15<span>th</span>, 2012</time>
+<time datetime="2012-07-02T19:12:00+04:00" pubdate data-updated="true">Jul 2<span>nd</span>, 2012</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/erlang/'>Erlang</a>, <a class='category' href='/blog/categories/xapian/'>Xapian</a>
+    <a class='category' href='/blog/categories/erlang/'>Erlang</a>, <a class='category' href='/blog/categories/odbc/'>ODBC</a>, <a class='category' href='/blog/categories/datetime/'>datetime</a>
   
 </span>
 
@@ -142,7 +148,7 @@ the whole program will be a derivative work.</p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://freeakk.github.com/blog/2012/06/15/pipes/" data-via="" data-counturl="http://freeakk.github.com/blog/2012/06/15/pipes/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://freeakk.github.com/blog/2012/07/02/odbc-sql/" data-via="" data-counturl="http://freeakk.github.com/blog/2012/07/02/odbc-sql/" >Tweet</a>
   
   
   
@@ -151,8 +157,8 @@ the whole program will be a derivative work.</p>
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/2012/07/02/odbc/" title="Previous Post: Install ODBC and MS SQL Server client for Erlang">&laquo; Install ODBC and MS SQL Server client for Erlang</a>
       
-        <a class="basic-alignment right" href="/blog/2012/07/02/dialyzer/" title="Next Post: Dialyzer">Dialyzer &raquo;</a>
       
     </p>
   </footer>
