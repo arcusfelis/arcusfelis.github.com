@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Dialyzer | freeakk.github.com]]></title>
-  <link href="http://freeakk.github.com/blog/categories/dialyzer/atom.xml" rel="self"/>
-  <link href="http://freeakk.github.com/"/>
-  <updated>2012-12-14T14:35:26+04:00</updated>
-  <id>http://freeakk.github.com/</id>
+  <title><![CDATA[Category: Dialyzer | arcusfelis.github.com]]></title>
+  <link href="http://arcusfelis.github.com/blog/categories/dialyzer/atom.xml" rel="self"/>
+  <link href="http://arcusfelis.github.com/"/>
+  <updated>2012-12-14T14:40:58+04:00</updated>
+  <id>http://arcusfelis.github.com/</id>
   <author>
     <name><![CDATA[Uvarov Michael]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Dialyzer]]></title>
-    <link href="http://freeakk.github.com/blog/2012/07/02/dialyzer/"/>
+    <link href="http://arcusfelis.github.com/blog/2012/07/02/dialyzer/"/>
     <updated>2012-07-02T19:12:00+04:00</updated>
-    <id>http://freeakk.github.com/blog/2012/07/02/dialyzer</id>
+    <id>http://arcusfelis.github.com/blog/2012/07/02/dialyzer</id>
     <content type="html"><![CDATA[<p>Dializer is a static analysis tool.
 It uses Persistent Lookup Table for storing information.
 First of all, we need to build PLT:</p>

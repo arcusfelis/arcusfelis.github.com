@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[freeakk.github.com]]></title>
-  <link href="http://freeakk.github.com/atom.xml" rel="self"/>
-  <link href="http://freeakk.github.com/"/>
-  <updated>2012-12-14T14:35:26+04:00</updated>
-  <id>http://freeakk.github.com/</id>
+  <title><![CDATA[arcusfelis.github.com]]></title>
+  <link href="http://arcusfelis.github.com/atom.xml" rel="self"/>
+  <link href="http://arcusfelis.github.com/"/>
+  <updated>2012-12-14T14:40:58+04:00</updated>
+  <id>http://arcusfelis.github.com/</id>
   <author>
     <name><![CDATA[Uvarov Michael]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[ODBC, MS SQL Server and Erlang]]></title>
-    <link href="http://freeakk.github.com/blog/2012/07/02/odbc-sql/"/>
+    <link href="http://arcusfelis.github.com/blog/2012/07/02/odbc-sql/"/>
     <updated>2012-07-02T19:12:00+04:00</updated>
-    <id>http://freeakk.github.com/blog/2012/07/02/odbc-sql</id>
+    <id>http://arcusfelis.github.com/blog/2012/07/02/odbc-sql</id>
     <content type="html"><![CDATA[<h2>Date and time</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -31,18 +31,18 @@
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>odbc:sql_query(S, "SELECT  getdate()").
-</span><span class='line'>{selected,[[]],[{ {{2012,10,23},{2,6,37}} }]}</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>{selected,[[]],[{ { {2012,10,23},{2,6,37} } }]}</span></code></pre></td></tr></table></div></figure>
 
 
-<p><code>{{2012,10,23},{2,6,37}}</code> has a type <code>sql_datetime</code>.</p>
+<p><code>{ {2012,10,23},{2,6,37} }</code> has a type <code>sql_datetime</code>.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Install ODBC and MS SQL Server client for Erlang]]></title>
-    <link href="http://freeakk.github.com/blog/2012/07/02/odbc/"/>
+    <link href="http://arcusfelis.github.com/blog/2012/07/02/odbc/"/>
     <updated>2012-07-02T19:12:00+04:00</updated>
-    <id>http://freeakk.github.com/blog/2012/07/02/odbc</id>
+    <id>http://arcusfelis.github.com/blog/2012/07/02/odbc</id>
     <content type="html"><![CDATA[<p>Here we are connecting to MS SQL Server 2008 on MS Windows XP from Erlang on Debian Linux.</p>
 
 <h2>Part 1</h2>
@@ -175,9 +175,9 @@ here:</p>
   
   <entry>
     <title type="html"><![CDATA[Dialyzer]]></title>
-    <link href="http://freeakk.github.com/blog/2012/07/02/dialyzer/"/>
+    <link href="http://arcusfelis.github.com/blog/2012/07/02/dialyzer/"/>
     <updated>2012-07-02T19:12:00+04:00</updated>
-    <id>http://freeakk.github.com/blog/2012/07/02/dialyzer</id>
+    <id>http://arcusfelis.github.com/blog/2012/07/02/dialyzer</id>
     <content type="html"><![CDATA[<p>Dializer is a static analysis tool.
 It uses Persistent Lookup Table for storing information.
 First of all, we need to build PLT:</p>
@@ -233,9 +233,9 @@ compilation time but it may result in (much) longer analysis time.</li>
   
   <entry>
     <title type="html"><![CDATA[Pipes]]></title>
-    <link href="http://freeakk.github.com/blog/2012/06/15/pipes/"/>
+    <link href="http://arcusfelis.github.com/blog/2012/06/15/pipes/"/>
     <updated>2012-06-15T18:23:00+04:00</updated>
-    <id>http://freeakk.github.com/blog/2012/06/15/pipes</id>
+    <id>http://arcusfelis.github.com/blog/2012/06/15/pipes</id>
     <content type="html"><![CDATA[<h1>Using Xapian through a pipe</h1>
 
 <p>To avoid linking with Xapian you can use a port:</p>
